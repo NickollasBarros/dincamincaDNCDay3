@@ -5,8 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets/style.css" rel="stylesheet">
+    <title>Cervejaria do Pericles Delivery</title>
+    <script>
+        function valida_entrada(){
+        const url = new URLSearchParams(window.location.search)
+        let acesso = url.get("acesso")
+        if(acesso==1){
+            document.getElementById("textoEntrada").innerHTML = "Olá! Gostaria de te dar boas vindas a Cervejaria do Pericles.<br>Aqui você encontrará as melhores bebidas do Brasil";
+        }else{
+            document.getElementById("textoEntrada").innerHTML = "Sinto muito, mas este site só é permitido para maiores de 18 anos! :(";
+            document.getElementById("btnEntrar").style.visibility = "hidden";
+        }        
+    }
+    </script>
 </head>
-<body>
+<body onload="valida_entrada()">
     <nav>
         <ul>
             <li><a href="#">A Cervejaria</a></li>
@@ -24,7 +37,7 @@
     </nav>
     <section class="card">
         <img src="assets/copos.png" alt="Cervejas">
-        <p><!--Entrar com JS posteriormente--></p>
+        <p id="textoEntrada"></p>
     </section>
     <button class="entrar" id="btnEntrar">Entrar no Site</button>
 </body>
